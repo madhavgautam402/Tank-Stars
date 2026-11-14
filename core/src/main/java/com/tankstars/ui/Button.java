@@ -13,7 +13,11 @@ public class Button {
     private final String label;
     private final Runnable action;
     private final GlyphLayout layout = new GlyphLayout();
+    private Color color = Color.ORANGE;
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
     public Button(String label, float x, float y, float width, float height, Runnable action) {
         this.label = label;
         this.bounds = new Rectangle(x, y, width, height);
@@ -22,7 +26,7 @@ public class Button {
 
     /** Call between shapes.begin(Filled) and shapes.end(). */
     public void drawShape(ShapeRenderer shapes) {
-        shapes.setColor(Color.ORANGE);
+        shapes.setColor(color);
         shapes.rect(bounds.x, bounds.y, bounds.width, bounds.height);
     }
 
